@@ -10,5 +10,5 @@ amule_max_download: 19375
 amule_port: 4662
 amule_udp_enabled: true
 amule_udp_port: 4672
-amule_temp_dir: /home/{{ ansible_user_id }}/.aMule/Temp
-amule_incoming_dir: /home/{{ ansible_user_id }}/Incoming
+amule_temp_dir: {{ ansible_env.HOME }}/.aMule/Temp
+amule_incoming_dir: {{ ansible_env.HOME }}/Incoming

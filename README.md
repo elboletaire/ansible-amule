@@ -30,13 +30,15 @@ amule_incoming_dir: /home/{{ ansible_user_id }}/Incoming
 Example Playbook
 ----------------
 
-    - hosts: servers
-      roles:
-        - {
-            role: amule,
-            sudo: yes,
-            amule_nick: Krilin
-          }
+```yaml
+  - hosts: servers
+    roles:
+      - {
+          role: amule,
+          sudo: yes,
+          amule_nick: Krilin
+        }
+```
 
 License
 -------

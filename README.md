@@ -11,34 +11,46 @@ Requirements
 
 Debian based system (remote machine).
 
+Installing
+----------
+
+You can easily install this role using `ansible-galaxy`:
+
+```bash
+ansible-galaxy install elboletaire.amule -p roles
+```
+
 Role Variables
 --------------
 
-```yaml
-# defaults file for amule
-amule_nick: yourNickname
-amule_web_enabled: true # Whether enable the web interface or not
-amule_web_port: 4711 # Web Interface Port
-amule_ec_port: 4712 # External Connection Port
-amule_passwd: yourPassword # Password for EC and Web
-amule_max_upload: 500
-amule_max_download: 19375
-amule_port: 4662
-amule_udp_enabled: true
-amule_udp_port: 4672
-amule_temp_dir: /home/{{ ansible_user_id }}/.aMule/Temp
-amule_incoming_dir: /home/{{ ansible_user_id }}/Incoming
-```
+There are no mandatory variables for configuring aMule. BTW, it is recommended
+that you change the password to increase the security (default one is very weak).
+
+| Variable                             | Default                                   |
+| ------------------------------------ | ----------------------------------------- |
+| `amule_nick`                         | amule's default                           |
+| `amule_password`                     | `1234`                                    |
+| `amule_web_enabled`                  | `true`                                    |
+| `amule_web_port`                     | `4711`                                    |
+| `amule_ec_port`                      | `4712`                                    |
+| `amule_max_upload`                   | `500`                                     |
+| `amule_max_download`                 | `19375`                                   |
+| `amule_port`                         | `4662`                                    |
+| `amule_udp_enabled`                  | `true`                                    |
+| `amule_udp_port`                     | `4672`                                    |
+| `amule_temp_dir`                     | `/home/{{ ansible_user_id }}/.aMule/Temp` |
+| `amule_incoming_dir`                 | `/home/{{ ansible_user_id }}/Incoming`    |
+
 
 Example Playbook
 ----------------
 
 ```yaml
-  - hosts: servers
-    roles:
-      - role: amule
-        sudo: yes
-        amule_nick: Krilin
+- hosts: all
+roles:
+  - role: amule
+    sudo: yes
+    amule_nick: Krilin
 ```
 
 License

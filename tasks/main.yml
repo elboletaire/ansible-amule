@@ -6,6 +6,7 @@
     state: present
   when: ansible_distribution == 'Debian' and
         ansible_distribution_release == 'jessie'
+  tags: amule
 
 - name: Install aMule
   apt: name=amule-daemon state=present
@@ -19,6 +20,7 @@
     default_release: sid
   when: ansible_distribution == 'Debian' and
         ansible_distribution_release == 'jessie'
+  tags: amule
 
 - name: Remove sid apt repository
   apt_repository:
@@ -26,22 +28,26 @@
     state: absent
   when: ansible_distribution == 'Debian' and
         ansible_distribution_release == 'jessie'
+  tags: amule
 
 - name: Update apt cache
   apt: update_cache=yes
   when: ansible_distribution == 'Debian' and
         ansible_distribution_release == 'jessie'
+  tags: amule
 
 # Configuration
 - name: Make sure aMule is not running
   service: name=amule-daemon state=stopped
   ignore_errors: true
+  tags: amule
 
 - name: Set aMule daemon user
   replace:
     dest: /etc/default/amule-daemon
     regexp: 'AMULED_USER=""'
     replace: 'AMULED_USER="{{ ansible_user_id }}"'
+  tags: amule
 
 - name: Add incoming folder
   file:
@@ -49,6 +55,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     state: directory
+  tags: amule
 
 - name: Add aMule config dir
   file:
@@ -56,6 +63,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     state: directory
+  tags: amule
 
 - name: Add temp folder
   file:
@@ -63,6 +71,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     state: directory
+  tags: amule
 
 - name: Copy aMule configuration
   template:
@@ -71,3 +80,4 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
   notify: start amule
+  tags: amule

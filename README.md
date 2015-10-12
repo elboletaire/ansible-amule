@@ -1,12 +1,12 @@
 aMule Ansible Role
 ==================
 
-Ansible role for installing aMule
+Ansible role for installing aMule for the `{{ ansible_user_id }}`.
 
 Requirements
 ------------
 
-Ansible >= 1.9.0 (control machine) and a Debian based system (remote machine).
+Debian based system (remote machine).
 
 Role Variables
 --------------
@@ -33,11 +33,9 @@ Example Playbook
 ```yaml
   - hosts: servers
     roles:
-      - {
-          role: amule,
-          sudo: yes,
-          amule_nick: Krilin
-        }
+      - role: amule
+        sudo: yes
+        amule_nick: Krilin
 ```
 
 License

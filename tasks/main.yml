@@ -70,8 +70,4 @@
     dest: "{{ ansible_env.HOME }}/.aMule/amule.conf"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
-
-# Service start
-- name: Start aMule
-  service: name=amule-daemon state=started
-  ignore_errors: true
+  notify: start amule

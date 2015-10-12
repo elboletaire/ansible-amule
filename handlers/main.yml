@@ -1,2 +1,7 @@
 ---
 # handlers file for amule
+- name: start amule
+  service:
+    name: amule-daemon
+    state: started
+  ignore_errors: true

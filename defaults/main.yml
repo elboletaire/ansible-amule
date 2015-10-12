@@ -4,7 +4,7 @@ amule_nick: "{{ ansible_user_id }}"
 amule_web_enabled: true
 amule_web_port: 4711
 amule_ec_port: 4712
-amule_passwd: '1234'
+amule_password: '1234'
 amule_max_upload: 500
 amule_max_download: 19375
 amule_port: 4662

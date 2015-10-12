@@ -1,6 +1,8 @@
 aMule Ansible Role
 ==================
 
+[![Build status](https://img.shields.io/travis/elboletaire/ansible-amule.svg?style=flat-square)](https://travis-ci.org/elboletaire/ansible-amule)
+
 Ansible role for installing aMule for the `{{ ansible_user_id }}`.
 
 Requirements

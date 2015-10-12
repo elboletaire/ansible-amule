@@ -1,4 +1,4 @@
-FROM williamyeh/ansible:ubuntu12.04
+FROM williamyeh/ansible:ubuntu12.04-onbuild
 
 RUN apt-get update
 CMD ["sh", "tests/test.sh"]

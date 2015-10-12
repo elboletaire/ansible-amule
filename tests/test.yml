@@ -1,0 +1,5 @@
+# Test file for amule
+---
+- hosts: all
+  roles:
+    - amule
